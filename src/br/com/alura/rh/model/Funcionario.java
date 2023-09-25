@@ -13,6 +13,10 @@ public class Funcionario {
 	
 	private FuncionarioData data = new FuncionarioData();
 
+	public Funcionario() {
+		
+	}
+			
 	public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {
 		this.data.nome = nome;
 		this.data.cpf = cpf;
