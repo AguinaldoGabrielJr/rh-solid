@@ -1,4 +1,4 @@
-package br.com.alura.rh.service;
+package br.com.alura.rh.service.reajuste;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -15,4 +15,5 @@ public class ValidacaoPercentualReajuste implements ValidacaoReajuste {
 			throw new ValidacaoException("Reajuste nao pode ser superior a 40% do salario!");
 		}
 	}
+
 }

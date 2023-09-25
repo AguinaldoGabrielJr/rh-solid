@@ -1,4 +1,4 @@
-package br.com.alura.rh.service;
+package br.com.alura.rh.service.reajuste;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -7,16 +7,15 @@ import java.time.temporal.ChronoUnit;
 import br.com.alura.rh.ValidacaoException;
 import br.com.alura.rh.model.Funcionario;
 
-public class ValidacaoPeridiocidadeReajuste implements ValidacaoReajuste{
-
+public class ValidacaoPeriodicidadeEntreReajustes  implements ValidacaoReajuste {
+	
 	public void validar(Funcionario funcionario, BigDecimal aumento) {
 		LocalDate dataUltimoReajuste = funcionario.getDataUltimoReajuste();
 		LocalDate dataAtual = LocalDate.now();
-
-		long mesmesesDesdeUltimoReajuste = ChronoUnit.MONTHS.between(dataUltimoReajuste, dataAtual);
-
-		if (mesmesesDesdeUltimoReajuste < 6) {
-			throw new ValidacaoException("O periodo do ultimo reajuste não pode ser menor que 6 meses!");
+		long mesesDeseUltimoReajuste = ChronoUnit.MONTHS.between(dataUltimoReajuste, dataAtual);
+		if (mesesDeseUltimoReajuste < 6) {
+			throw new ValidacaoException("Intervalo entre reajustes deve ser de no minimo 6 meses!");
 		}
 	}
+
 }
